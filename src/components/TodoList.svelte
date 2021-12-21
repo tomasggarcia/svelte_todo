@@ -1,20 +1,22 @@
  <script>
      import TodoItem from './TodoItem.svelte'
      let input = ''
-     let list = ['a','b']
+     let values = ['a','b']
+     let status = [true,false]
      const addItem = () => {
         console.log()
-        if (!list.includes(input)){
-            list = [...list, input]
+        if (!values.includes(input)){
+            values = [...values, input]
+            status = [...status, true]
         }
-        console.log(list)
+        console.log(values)
      }
      const handleInput = (event) => {
          input = event.target.value
      }
      const handleDelete = (index) => {
-        list.splice(index,1)
-        list = list
+        values.splice(index,1)
+        values = values
      }
  </script>
 
@@ -31,11 +33,11 @@
  
  <div class='container'>
      <div class='center'>
-         <h1>Todo List</h1>
+         <h1>Todo values</h1>
          <input on:input={handleInput} placeholder="Title..."/>
          <button on:click={addItem}>Add</button>
      </div>
-     {#each list as item, i}
-         <TodoItem value={item} index={i} handleDelete={handleDelete}/>
+     {#each values as item, i}
+         <TodoItem value={item} index={i} handleDelete={handleDelete} status={status[i]}/>
      {/each}
  </div>
