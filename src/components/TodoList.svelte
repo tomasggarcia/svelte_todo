@@ -18,9 +18,13 @@
         values.splice(index,1)
         values = values
      }
+
  </script>
 
  <style>
+     h1 {
+        color: white;
+     }
      .container {
          margin: auto;
          width: 60%;
@@ -33,7 +37,7 @@
  
  <div class='container'>
      <div class='center'>
-         <h1>Todo values</h1>
+         <h1>My To Do List</h1>
          <input on:input={handleInput} placeholder="Title..."/>
          <button on:click={addItem}>Add</button>
      </div>
